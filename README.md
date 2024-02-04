@@ -24,6 +24,15 @@ julia> ]
 (Julia_Tutorial_on_AI4MathBi...) pkg> precompile
 ```
 
+## Slides
+
+[Slides](./20231022Epi_informed_deep_learning.pdf)
+
+## References
+
+- [couple of DiffEq and DNN](./2022-JAAC-SongXiao.pdf)
+- [Symbolic Regression](./2023WuDLBehaviourspringer.pdf)
+  
 ## Acknowledgement
 
 Some contents are from
