@@ -1,3 +1,8 @@
+# How to Run Julia Codes in VSCode
+## Ctrl Enter: Run one line
+## Shift Enter: Run one line and go next
+## Alt Enter: run one block
+
 using DifferentialEquations
 function sir!(du, u, p, t)
     S, I, R = u
