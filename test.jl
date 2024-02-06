@@ -1,7 +1,7 @@
 # How to Run Julia Codes in VSCode
 ## Ctrl Enter: Run one line
 ## Shift Enter: Run one line and go next
-## Alt Enter: run one block
+## Alt Enter: run one block. block is splitted by "##"
 
 ##
 using DifferentialEquations
