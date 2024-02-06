@@ -31,8 +31,10 @@ julia> ]
 ## References
 
 - [couple of DiffEq and DNN](./2022-JAAC-SongXiao.pdf)
+  Song P, Xiao Y. Estimating time-varying reproduction number by deep learning techniques[J]. J Appl Anal Comput, 2022, 12(3): 1077-1089.
 - [Symbolic Regression](./2023WuDLBehaviourspringer.pdf)
-  
+  Song P, Xiao Y, Wu J. Discovering First Principle of Behavioural Change in Disease Transmission Dynamics by Deep Learning[M]//Mathematics of Public Health: Mathematical Modelling from the Next Generation. Cham: Springer International Publishing, 2023: 37-54.
+
 ## Acknowledgement
 
 Some contents are from
