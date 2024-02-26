@@ -1,6 +1,6 @@
 # Tutorial on coupling of transmission dynamics and deep learning
 
-For a 2 hours courses in York University.
+For a 2 hours courses (taught by Prof Jianhong Wu) in York University.
 
 ## Set up the `Julia` environment
 
@@ -23,6 +23,10 @@ julia> ]
 (@v1.10) pkg> activate .
 (Julia_Tutorial_on_AI4MathBi...) pkg> precompile
 ```
+
+## Notes PDF and Website
+
+[Notes](./Julia-Tutorial-on-AI-for-Mathematical-Biology.pdf)
 
 ## Slides
 

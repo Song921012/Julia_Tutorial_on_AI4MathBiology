@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://song921012.github.io/Julia_Tutorial_on_AI4MathBiology/index.html</loc>
+    <lastmod>2024-02-26T08:54:47.662Z</lastmod>
+  </url>
+  <url>
+    <loc>https://song921012.github.io/Julia_Tutorial_on_AI4MathBiology/1-basics.html</loc>
+    <lastmod>2024-02-23T15:13:55.842Z</lastmod>
+  </url>
+  <url>
+    <loc>https://song921012.github.io/Julia_Tutorial_on_AI4MathBiology/2-neural-networks&optimization.html</loc>
+    <lastmod>2024-02-06T21:33:17.311Z</lastmod>
+  </url>
+  <url>
+    <loc>https://song921012.github.io/Julia_Tutorial_on_AI4MathBiology/3-differential-equations.html</loc>
+    <lastmod>2024-02-26T08:40:45.264Z</lastmod>
+  </url>
+  <url>
+    <loc>https://song921012.github.io/Julia_Tutorial_on_AI4MathBiology/4-neural-differential-equations.html</loc>
+    <lastmod>2024-02-06T02:53:29.430Z</lastmod>
+  </url>
+  <url>
+    <loc>https://song921012.github.io/Julia_Tutorial_on_AI4MathBiology/5-symbolic-regression.html</loc>
+    <lastmod>2024-02-26T08:44:45.330Z</lastmod>
+  </url>
+</urlset>

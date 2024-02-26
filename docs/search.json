@@ -1,0 +1,222 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Julia Tutorial on AI for Mathematical Biology",
+    "section": "",
+    "text": "Welcome",
+    "crumbs": [
+      "Welcome"
+    ]
+  },
+  {
+    "objectID": "1-basics.html",
+    "href": "1-basics.html",
+    "title": "1  Julia Basics",
+    "section": "",
+    "text": "1.1 Why Julia?\nSlow language is not suitable for this task — learning neural networks embedded in differential equations.\nIn short - Solving two language problems: C++ is fast but difficult; Python is easy but slow. Julia is fast and easy. - Language for Mathematics: writing Julia is just like writing mathematics. - Similar syntax as Matlab; Simple as Python; Fast as C++.\nMore advantages and disadvantages can be seen in Why Julia? · Julia for Optimization and Learning",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Julia Basics</span>"
+    ]
+  },
+  {
+    "objectID": "1-basics.html#installation-juliavscode",
+    "href": "1-basics.html#installation-juliavscode",
+    "title": "1  Julia Basics",
+    "section": "1.2 Installation: Julia+VSCode",
+    "text": "1.2 Installation: Julia+VSCode\nJulia + VScode\n\n1.2.1 Recommended\nWe recommend to install Julia via juliaup. We are using the latest, stable version of Julia (which at the time of this writing is v1.10). Once you have installed juliaup you can get any Julia version you want via:\njuliaup add $JULIA_VERSION\n\n# or more concretely:\njuliaup add 1.10\n\n# but please, just use the latest, stable version\nNow you should be able to start Julia and be greeted with the following:\n$ julia\n               _\n   _       _ _(_)_     |  Documentation: https://docs.julialang.org\n  (_)     | (_) (_)    |\n   _ _   _| |_  __ _   |  Type \"?\" for help, \"]?\" for Pkg help.\n  | | | | | | |/ _` |  |\n  | | |_| | | | (_| |  |  Version 1.10.0 (2023-12-25)\n _/ |\\__'_|_|_|\\__'_|  |  Official https://julialang.org/ release\n|__/                   |\n\njulia&gt;\n\n\n1.2.2 Alternatives\nJulia can also be installed from the official website download page. The appropriate version is the 64-bits version for the Windows operating system in most cases. In case of difficulties, see platform-specific instructions.\n\n\n1.2.3 Editor\nThere is no one way to install/develop and run Julia, which may be strange for users coming from MATLAB, but for users of general purpose languages such as Python, C++ this is quite common. Most of the Julia programmers to date are using\n\nVisual Studio Code,\nand the corresponding Julia extension.\n\nThis setup is described in a comprehensive step-by-step guide in Julia for Optimization & Learning.\nFor other editors, we refer to Julia IDE",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Julia Basics</span>"
+    ]
+  },
+  {
+    "objectID": "1-basics.html#packages-and-environment-management",
+    "href": "1-basics.html#packages-and-environment-management",
+    "title": "1  Julia Basics",
+    "section": "1.3 Packages and Environment Management",
+    "text": "1.3 Packages and Environment Management\nJulia manages packages and environments like Rust. Very convenient! Strongly recommendation: go through this document Working with Environment · Pkg.jl quickly.\nTo set up the same environment as me, you can follow the guides in Song921012/Julia_Tutorial_on_AI4MathBiology",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Julia Basics</span>"
+    ]
+  },
+  {
+    "objectID": "1-basics.html#other-julia-courses-and-materials",
+    "href": "1-basics.html#other-julia-courses-and-materials",
+    "title": "1  Julia Basics",
+    "section": "1.4 Other Julia Courses and Materials",
+    "text": "1.4 Other Julia Courses and Materials\n\nOfficial documentation\nSlack channel: Community\nImportant:Cheatsheet for differences between Julia and Matlab and Python\nCheatsheet of basic functions\nCheatsheet of advanced functions\nThink Julia: How to Think Like a Computer Scientist\nFrom Zero to Julia!\nRecommended: Julia for Optimization and Learning\nScientific Programming in Julia\nJulia Data Science\nStatistics with Julia: Fundamentals for Data Science, Machine Learning and Artificial Intelligence",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Julia Basics</span>"
+    ]
+  },
+  {
+    "objectID": "2-neural-networks&optimization.html",
+    "href": "2-neural-networks&optimization.html",
+    "title": "2  Neural Networks",
+    "section": "",
+    "text": "2.1 IMPORTANT: Activate Julia environment first\nusing Pkg\nPkg.activate(\".\")\n\n  Activating project at `~/Desktop/MyProjects/Julia_Tutorial_on_AI4MathBiology`",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Neural Networks</span>"
+    ]
+  },
+  {
+    "objectID": "2-neural-networks&optimization.html#multilayer-neural-network-as-a-function",
+    "href": "2-neural-networks&optimization.html#multilayer-neural-network-as-a-function",
+    "title": "2  Neural Networks",
+    "section": "2.2 Multilayer neural network as a function",
+    "text": "2.2 Multilayer neural network as a function\nYou only need to regard neural network as a function \\(f(x,p)\\), \\(x\\) input, \\(p\\) parameters.\n\nusing Flux\ndnn_model = Chain(Dense(1, 10, swish), Dense(10, 100,swish),Dense(100, 10, swish), Dense(10, 1))\n# Remark: In Deep Learning, there is no one dimensional scalar but one dimensional vector \ndnn_model([1.0f0])\n\n1-element Vector{Float32}:\n -0.040261105\n\n\n\ndnn_model2 = Chain(Dense(2, 10, swish), Dense(10, 100,swish),Dense(100, 10, swish), Dense(10, 2))\n# Remark: f0 here means we use Float32\ndnn_model2([1.0f0,2.0f0])[1]\n\n0.100376524f0\n\n\nNote here that we didn’t set parameters for this deep learning architecture, however, it has an input. Why?\nThe reason is that in Flux.jl, a DNN model has parameters pre defined. Sometimes, it is very inconvenient. Thus, we need to destructure the neural network, so that we can change the parameter of the neural network.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Neural Networks</span>"
+    ]
+  },
+  {
+    "objectID": "2-neural-networks&optimization.html#important-destructure",
+    "href": "2-neural-networks&optimization.html#important-destructure",
+    "title": "2  Neural Networks",
+    "section": "2.3 IMPORTANT: destructure",
+    "text": "2.3 IMPORTANT: destructure\n\nparameter, structure=Flux.destructure(dnn_model2) # parameters and structures\nnewpara = parameter*0.1 .+ 0.3\n# DNN with new parameters\nf(x,p)=structure(p)(x)# x input, p parameter\nprintln(\"DNN with new parameter:\", f([1.0f0,2.0f0],newpara))\n\nDNN with new parameter:Float32[286.11746, 278.07166]",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Neural Networks</span>"
+    ]
+  },
+  {
+    "objectID": "2-neural-networks&optimization.html#using-dnn-to-learn-sinx",
+    "href": "2-neural-networks&optimization.html#using-dnn-to-learn-sinx",
+    "title": "2  Neural Networks",
+    "section": "2.4 Using DNN to learn \\(\\sin(x)\\)",
+    "text": "2.4 Using DNN to learn \\(\\sin(x)\\)\n\nusing Flux\nusing Flux:train!,params\n# 1. Gennerate Data and Define DNN\nx = Array(-2π:0.01:2π)'\ndata = sin.(x)\n#dnn_model = Chain(Dense(1, 1), x-&gt; cos.(x))\n#dnn_model = Chain(Dense(1, 128, relu), Dense(128, 1), x-&gt; cos.(x))\ndnn_model = Chain(Dense(1, 10, swish), Dense(10, 100,swish),Dense(100, 10, swish), Dense(10, 1))\n# dnn_model = Chain(Dense(1, 32, relu), Dense(32, 1, tanh))\n\n\n# 2. Define Loss Functions\nloss2(a,b) = Flux.Losses.mae(dnn_model(x), data)\n\n# Train the model\nopt=ADAM(0.02)\nprintln(loss2(x, data))\ntrain!(loss2, Flux.params(dnn_model), [(x,data)], opt)\nprintln(loss2(x, data))\n\n\n\nfor epoch in 1:5000\n    train!(loss2, params(dnn_model), [(x,data)], opt)\n    if epoch%500==0\n    println(loss2(x, data))\n    end\nend\n\n0.6178579239993328\n0.8133888838007648\n0.029455694189493377\n0.019722234455541977\n0.02941249289718608\n0.044564484807402126\n0.017978833994311296\n0.018942334715419555\n0.04541769339893456\n0.019092272589503845\n0.020229457337176477\n0.02070247009650008\n\n\nData visulization\n\nusing Plots\nprintln(loss2(x, data))\ny = Array(-2π:0.1:4π)'\nscatter(sin.(y)')\nplot!(dnn_model(y)')\n\n0.02070247009650008\n\n\n\n\n\n  \n    \n  \n\n\n\n  \n    \n  \n\n\n\n  \n    \n  \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2.4.1 Question: why this DNN learn the \\(\\sin(x)\\) data but fails to predict \\(\\sin(x)\\)? How to improve the performance?",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Neural Networks</span>"
+    ]
+  },
+  {
+    "objectID": "2-neural-networks&optimization.html#optimization",
+    "href": "2-neural-networks&optimization.html#optimization",
+    "title": "2  Neural Networks",
+    "section": "2.5 Optimization",
+    "text": "2.5 Optimization\nTraining a deep learning model is an optimization problem. In Julia, there is a unified optimization package with many popular optimizers, such as LBFS, BFGS, ADAM, SGD, evolution algorithms. For more details, one can seen - Optimization.jl: A Unified Optimization Package · Optimization.jl\nAt this time, you only need to understand the following example: \\[\\min_{x} (x_1-p_1)^2+p_2*(x_2-x_1^2)^2\\] where \\(p\\) is parameter you can pre defined.\n\n# Import the package and define the problem to optimize\nusing Optimization\nrosenbrock(u, p) = (p[1] - u[1])^2 + p[2] * (u[2] - u[1]^2)^2\nu0 = zeros(2)\np = [1.0, 100.0]\n\nprob = OptimizationProblem(rosenbrock, u0, p)\n\n# Import a solver package and solve the optimization problem\nusing OptimizationOptimJL\nsol = solve(prob, NelderMead())\n\nretcode: Success\nu: 2-element Vector{Float64}:\n 0.9999634355313174\n 0.9999315506115275\n\n\nImport a different solver package and solve the optimization problem a different way\n\nusing OptimizationBBO\nprob = OptimizationProblem(rosenbrock, u0, p, lb = [-1.0, -1.0], ub = [1.0, 1.0])\nsol = solve(prob, BBO_adaptive_de_rand_1_bin_radiuslimited())\n\nretcode: Failure\nu: 2-element Vector{Float64}:\n 0.9999999999999876\n 0.9999999999999785",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Neural Networks</span>"
+    ]
+  },
+  {
+    "objectID": "3-differential-equations.html",
+    "href": "3-differential-equations.html",
+    "title": "3  Differential Equations",
+    "section": "",
+    "text": "3.0.1 Solving SIR Model\nMore details can be seen in\nGetting Started with Differential Equations in Julia · DifferentialEquations.jl\nSciML/DifferentialEquations.jl: Multi-language suite for high-performance solvers of differential equations and scientific machine learning (SciML) components. Ordinary differential equations (ODEs), stochastic differential equations (SDEs), delay differential equations (DDEs), differential-algebraic equations (DAEs), and more in Julia.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Differential Equations</span>"
+    ]
+  },
+  {
+    "objectID": "3-differential-equations.html#important-activate-julia-environment-first",
+    "href": "3-differential-equations.html#important-activate-julia-environment-first",
+    "title": "3  Differential Equations",
+    "section": "3.1 IMPORTANT: Activate Julia environment first",
+    "text": "3.1 IMPORTANT: Activate Julia environment first\n\nusing Pkg\nPkg.activate(\".\")\n\n  Activating project at `~/Desktop/MyProjects/Julia_Tutorial_on_AI4MathBiology`\n\n\n\n3.1.1 Learn Julia in AI era\nActually, you can also use Cursor - The AI-first Code Editor (VSCode with ChatGPT embedded.)\n\nusing DifferentialEquations\nfunction sir!(du,u,p,t)\n    S,I,R = u\n    β,γ = p\n    du[1] = -β*S*I\n    du[2] = β*S*I-γ*I\n    du[3] = γ*I\nend\nparms = [0.1,0.05]\ninitialvalue = [0.99,0.01,0.0]\ntspan = (0.0,200.0)\nsir_prob = ODEProblem(sir!,initialvalue,tspan,parms)\nsir_sol = solve(sir_prob,saveat = 0.1);\n\n\n\n3.1.2 Data visulization\nIn Julia, we use Plots.jl or Makie.jl or TidierPlots.jl(similar to ggplot2)\n\nPlots.jl\nMakie.jl\nTidierOrg/TidierPlots.jl: Tidier data visualization in Julia, modeled after the ggplot2 R package.\n\n\nusing Plots\nplot(sir_sol)",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Differential Equations</span>"
+    ]
+  },
+  {
+    "objectID": "3-differential-equations.html#solving-sir-model-with-neural-networks-embedded",
+    "href": "3-differential-equations.html#solving-sir-model-with-neural-networks-embedded",
+    "title": "3  Differential Equations",
+    "section": "3.2 Solving SIR model with neural networks embedded",
+    "text": "3.2 Solving SIR model with neural networks embedded\nSolving the following differential equations with neural networks embedded \\[\n    \\left\\{\n    \\begin{aligned}\n         & \\frac{\\mathrm{d}S}{\\mathrm{dt}} = - \\mathrm{NN}(I) S ,        \\\\\n         & \\frac{\\mathrm{d}I}{\\mathrm{dt}} = \\mathrm{NN}(I) S- \\gamma I,\n    \\end{aligned}\n    \\right.\n\\]\n\nusing DifferentialEquations\nusing Flux\nusing Plots\nann_node = Flux.Chain(Flux.Dense(1, 64, tanh), Flux.Dense(64, 1))\npara, re = Flux.destructure(ann_node) # destructure\nfunction SIR_nn(du,u,p,t)\n    S, I = u\n    du[1] =  - S*re(p)([I])[1]\n    du[2] = S*re(p)([I])[1] - 0.1*I\nend\ninitialvalue = Float32.([0.99,0.01])\ntspan = (0.0f0,200.0f0)\nprob_nn = ODEProblem(SIR_nn, initialvalue, tspan, para)\nsol_nn=solve(prob_nn)\nplot(sol_nn)",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Differential Equations</span>"
+    ]
+  },
+  {
+    "objectID": "4-neural-differential-equations.html",
+    "href": "4-neural-differential-equations.html",
+    "title": "4  Couple of differential equations and deep learning",
+    "section": "",
+    "text": "4.1 IMPORTANT: Activate Julia environment first\nusing Pkg\nPkg.activate(\".\")\n\n  Activating project at `~/Desktop/MyProjects/Julia_Tutorial_on_AI4MathBiology`",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Couple of differential equations and deep learning</span>"
+    ]
+  },
+  {
+    "objectID": "4-neural-differential-equations.html#loading-packages-and-setting-random-seeds",
+    "href": "4-neural-differential-equations.html#loading-packages-and-setting-random-seeds",
+    "title": "4  Couple of differential equations and deep learning",
+    "section": "4.2 Loading packages and setting random seeds",
+    "text": "4.2 Loading packages and setting random seeds\n\n##\nusing Lux, DiffEqFlux, DifferentialEquations, Optimization, OptimizationOptimJL, Random, Plots\nusing DataFrames\nusing CSV\nusing ComponentArrays\nusing OptimizationOptimisers\nusing Flux\nusing Plots\nusing LaTeXStrings\nrng = Random.default_rng()\nRandom.seed!(1);",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Couple of differential equations and deep learning</span>"
+    ]
+  },
+  {
+    "objectID": "4-neural-differential-equations.html#generating-test-data-from-logistic-model",
+    "href": "4-neural-differential-equations.html#generating-test-data-from-logistic-model",
+    "title": "4  Couple of differential equations and deep learning",
+    "section": "4.3 Generating test data from logistic model",
+    "text": "4.3 Generating test data from logistic model\n\nfunction model2(du, u, p, t)\n    r, α = p\n    du .= r .* u .* (1 .- u ./ α)\nend\nu_0 = [1.0]\np_data = [0.2, 30]\ntspan_data = (0.0, 30)\nprob_data = ODEProblem(model2, u_0, tspan_data, p_data)\ndata_solve = solve(prob_data, Tsit5(), abstol=1e-12, reltol=1e-12, saveat=1)\ndata_withoutnois = Array(data_solve)\ndata = data_withoutnois #+ Float32(2e-1)*randn(eltype(data_withoutnois), size(data_withoutnois))\ntspan_predict = (0.0, 40)\nprob_predict = ODEProblem(model2, u_0, tspan_predict, p_data)\ntest_data = solve(prob_predict, Tsit5(), abstol=1e-12, reltol=1e-12, saveat=1)\nplot(test_data)",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Couple of differential equations and deep learning</span>"
+    ]
+  },
+  {
+    "objectID": "4-neural-differential-equations.html#define-neural-ode",
+    "href": "4-neural-differential-equations.html#define-neural-ode",
+    "title": "4  Couple of differential equations and deep learning",
+    "section": "4.4 Define neural ODE",
+    "text": "4.4 Define neural ODE\n\nann_node = Lux.Chain(Lux.Dense(1, 10, tanh), Lux.Dense(10, 1))\np, st = Lux.setup(rng, ann_node)\nfunction model2_nn(du, u, p, t)\n    du[1] = 0.1 * ann_node([t], p, st)[1][1] * u[1] - 0.1 * u[1]\nend\nprob_nn = ODEProblem(model2_nn, u_0, tspan_data, ComponentArray(p))\nfunction train(θ)\n    Array(concrete_solve(prob_nn, Tsit5(), u_0, θ, saveat=1,\n        abstol=1e-6, reltol=1e-6))#,sensealg = InterpolatingAdjoint(autojacvec=ReverseDiffVJP())))\nend\nprintln(train(p))\n\n[1.0 0.9034894787099034 0.816044774397625 0.738899351409905 0.6708651886632545 0.6103115066683285 0.5559385598217129 0.5068149611814299 0.4622628182958812 0.42176265541056185 0.3848926876528822 0.3512970955937428 0.32066653678690593 0.29272805069240965 0.26723762578981225 0.24397614107566593 0.22274549717364528 0.20336636216455103 0.1856759316563355 0.16952606292369218 0.15478209579983565 0.1413211771011583 0.1290313774034772 0.11781071855307523 0.10756598871265088 0.09821226053652148 0.08967204625628192 0.08187447835954895 0.07475499024165028 0.06825465263126726 0.062319547374091934]",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Couple of differential equations and deep learning</span>"
+    ]
+  },
+  {
+    "objectID": "4-neural-differential-equations.html#define-loss-functions-and-callbacks",
+    "href": "4-neural-differential-equations.html#define-loss-functions-and-callbacks",
+    "title": "4  Couple of differential equations and deep learning",
+    "section": "4.5 Define Loss functions and Callbacks",
+    "text": "4.5 Define Loss functions and Callbacks\n\nfunction loss(θ)\n    pred = train(θ)\n    sum(abs2, (data .- pred)), pred # + 1e-5*sum(sum.(abs, params(ann)))\nend\n\nconst losses = []\ncallback(θ, l, pred) = begin\n    push!(losses, l)\n    if length(losses) % 100 == 0\n        println(losses[end])\n    end\n    false\nend\n\npinit = ComponentArray(p)\nprintln(loss(p))\ncallback(pinit, loss(pinit)...)\n\n(8216.907972450199, [1.0 0.9034894787099034 0.816044774397625 0.738899351409905 0.6708651886632545 0.6103115066683285 0.5559385598217129 0.5068149611814299 0.4622628182958812 0.42176265541056185 0.3848926876528822 0.3512970955937428 0.32066653678690593 0.29272805069240965 0.26723762578981225 0.24397614107566593 0.22274549717364528 0.20336636216455103 0.1856759316563355 0.16952606292369218 0.15478209579983565 0.1413211771011583 0.1290313774034772 0.11781071855307523 0.10756598871265088 0.09821226053652148 0.08967204625628192 0.08187447835954895 0.07475499024165028 0.06825465263126726 0.062319547374091934])\n\n\nWARNING: redefinition of constant Main.losses. This may fail, cause incorrect answers, or produce other errors.\n\n\nfalse",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Couple of differential equations and deep learning</span>"
+    ]
+  },
+  {
+    "objectID": "4-neural-differential-equations.html#train-the-dnn-embedded-in-differential-equations",
+    "href": "4-neural-differential-equations.html#train-the-dnn-embedded-in-differential-equations",
+    "title": "4  Couple of differential equations and deep learning",
+    "section": "4.6 Train the DNN embedded in differential equations",
+    "text": "4.6 Train the DNN embedded in differential equations\n\n##\nadtype = Optimization.AutoZygote()\n\noptf = Optimization.OptimizationFunction((x, p) -&gt; loss(x), adtype)\noptprob = Optimization.OptimizationProblem(optf, pinit)\n\nresult_neuralode = Optimization.solve(optprob,\n    OptimizationOptimisers.ADAM(0.01),\n    callback=callback,\n    maxiters=3000)\n\n351.3882444818854\n10.717546698923622\n5.085851488814772\n3.309161988025375\n2.047732114123806\n1.4779429126053438\n1.1030499970359096\n0.8671407377062605\n0.89452740171059\n1.1183121854553197\n0.5708184017763677\n0.6691065208401739\n5.132183889809579\n0.37482373305669753\n0.34152053487660833\n0.3957727120735596\n0.45823548822468946\n0.6362163059886281\n0.5308457201849255\n0.38457406727826243\n0.3170416291552578\n0.24499973482324744\n0.2588192487633485\n0.2888203122058308\n0.2505142252862214\n0.32557412313084977\n0.21740930062101116\n0.22007704827398192\n0.27991144946026614\n0.36140008308087385\n\n\n\nretcode: Default\nu: ComponentVector{Float32}(layer_1 = (weight = Float32[-0.07485764; -0.8849845; … ; 0.6581717; 0.06597537;;], bias = Float32[1.2210366; -0.25018442; … ; 0.08555885; -0.9714211;;]), layer_2 = (weight = Float32[0.24699448 -0.5477573 … -0.006901356 -0.44552884], bias = Float32[0.09773029;;]))",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Couple of differential equations and deep learning</span>"
+    ]
+  },
+  {
+    "objectID": "4-neural-differential-equations.html#output-and-data-visulization",
+    "href": "4-neural-differential-equations.html#output-and-data-visulization",
+    "title": "4  Couple of differential equations and deep learning",
+    "section": "4.7 Output and data visulization",
+    "text": "4.7 Output and data visulization\n\npfinal = result_neuralode.u\n\nprintln(pfinal)\nprob_nn2 = ODEProblem(model2_nn, u_0, tspan_predict, pfinal)\ns_nn = solve(prob_nn2, Tsit5(), saveat=1)\n\n# I(t)\nscatter(data_solve.t, data[1, :], label=\"Training Data\")\nplot!(test_data, label=\"Real Data\")\nplot!(s_nn, label=\"Neural Networks\")\nxlabel!(\"t(day)\")\nylabel!(\"I(t)\")\ntitle!(\"Logistic Growth Model(I(t))\")\n#savefig(\"Figures/logisticIt.png\")\n# R(t)\nf(x) = 2 * (1 - x / p_data[2]) + 1\nplot((f.(test_data))', label=L\"R_t = 2(1-I(t)/K)+1\")\nplot!((f.(s_nn))', label=L\"R_t = NN(t)\")\nxlabel!(\"t(day)\")\nylabel!(\"Effective Reproduction Number\")\ntitle!(\"Logistic Growth Model(Rt)\")\n#savefig(\"Figures/logisticRt.png\")\n\n(layer_1 = (weight = Float32[-0.07485764; -0.8849845; -0.91284543; -0.052147113; -0.96092546; 0.5507915; -0.0682303; 0.45291868; 0.6581717; 0.06597537;;], bias = Float32[1.2210366; -0.25018442; -0.25013623; 0.3748877; -0.25796017; 0.25077668; 1.040233; 0.25534686; 0.08555885; -0.9714211;;]), layer_2 = (weight = Float32[0.24699448 -0.5477573 -0.5507935 0.47983858 -0.26715246 0.50550157 0.354054 0.3404353 -0.006901356 -0.44552884], bias = Float32[0.09773029;;]))\n\n\n\n\n\n  \n    \n  \n\n\n\n  \n    \n  \n\n\n\n  \n    \n  \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4.7.1 Question: modify the codes, change Lux.jl back to Flux.jl?",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Couple of differential equations and deep learning</span>"
+    ]
+  },
+  {
+    "objectID": "5-symbolic-regression.html",
+    "href": "5-symbolic-regression.html",
+    "title": "5  Symbolic Regression",
+    "section": "",
+    "text": "5.1 IMPORTANT: Activate Julia environment first\nusing Pkg\nPkg.activate(\".\")\n# Load packages\nusing SymbolicRegression\nusing SymbolicUtils\n# Generating test data\nI = collect(0:0.1:10)\nf(x) = 0.2exp(-0.1*x)*x\nY = f.(I)\n\n\n# choosing operations\noptions = SymbolicRegression.Options(\n    binary_operators=(+, *, -),\n    unary_operators=(exp,),\n    npopulations=20\n)\n\n\n# equations searching\nhallOfFame = EquationSearch(I', Y, niterations=150, options=options, parallelism=:multithreading\n)\n# output\ndominating = calculate_pareto_frontier(I, Y, hallOfFame, options)\neqn = node_to_symbolic(dominating[end].tree, options)\n\n(x1 * exp(-0.8866729615216796 - ((x1 - 5.823564614359717) * 0.10000000003526198))) * 0.27113961336456716",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Symbolic Regression</span>"
+    ]
+  },
+  {
+    "objectID": "5-symbolic-regression.html#project-predicting-the-peak-time",
+    "href": "5-symbolic-regression.html#project-predicting-the-peak-time",
+    "title": "5  Symbolic Regression",
+    "section": "5.2 Project: predicting the peak time",
+    "text": "5.2 Project: predicting the peak time\nSome immature ideas (may be wrong): - In Lectures 1&2 note, we know that \\[I(t_p)=I_0+S_0\\left(1-\\frac{1}{\\mathcal{R}_0}-\\frac{\\ln\\mathcal{R}_0}{\\mathcal{R}_0}\\right),\\] which implies the peak time \\[t_p=f(\\mathcal{R}_0).\\]\nQ: Can we use symbolic regression to search \\(f\\)?\n\nFor real case data, you can learn \\(\\beta(t)=\\mathrm{NeuralNetwork}(t)\\) first \\[\n  \\left\\{\n  \\begin{aligned}\n       & \\frac{\\mathrm{d}S}{\\mathrm{dt}} = - \\mathrm{NeuralNetwork}(t) S I,        \\\\\n       & \\frac{\\mathrm{d}I}{\\mathrm{dt}} = \\mathrm{NeuralNetwork}(t) S I- \\gamma I,\n  \\end{aligned}\n  \\right.\n\\] then you get a new ODE. Solving this new ODE and setting \\(\\mathrm{NeuralNetwork}(t) S(t) I(t)- \\gamma I(t)=0\\), you can solve the peak time \\(t_p\\), and check whether \\(t_p\\) is minimum or maximum by checking the sign \\[\\frac{\\mathrm{d}^2 I}{\\mathrm{dt}^2}=(\\mathrm{NeuralNetwork}(t) S I- \\gamma I)'=(\\mathrm{NeuralNetwork}(t)' S + \\mathrm{NeuralNetwork}(t) S')I +(\\mathrm{NeuralNetwork}(t) S - \\gamma)I'.\\]\n\nQ: - How to solve this fixed point problem \\(\\mathrm{NeuralNetwork}(t) S(t) I(t)- \\gamma I(t)=0\\)? - How to improve the generalization (prediction ability) of the neural network embedded in differential equations? - How to combine these two ideas?",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Symbolic Regression</span>"
+    ]
+  }
+]

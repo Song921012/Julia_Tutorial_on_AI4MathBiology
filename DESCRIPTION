@@ -1,0 +1,13 @@
+Package: ai4mathbio
+Type: Book
+Title: Tutorial on coupling of transmission dynamics and deep learning.
+Version: 0.0.1
+Imports: 
+  bookdown
+URL: https://song921012.github.io/Julia_Tutorial_on_AI4MathBiology/
+BugReports: https://song921012.github.io/Julia_Tutorial_on_AI4MathBiology/issues
+License: CCBY-4.0
+Authors@R: person("Pengfei", "Song", role = c("aut", "cre"), email = "aidishage@gmail.com")
+Maintainer: Pengfei  <aidishage@gmail.com>
+Description: Records of Pengfei's notes.
+SystemRequirements: pandoc (>= 2.9.2) - https://pandoc.org

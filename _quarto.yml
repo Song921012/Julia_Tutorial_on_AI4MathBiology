@@ -1,0 +1,71 @@
+project:
+  type: book
+  output-dir: docs
+
+book:
+  page-navigation: true
+  title: "Julia Tutorial on AI for Mathematical Biology"
+  author: "Pengfei Song"
+  date: "02/06/2024"
+  #cover-image: images/cover.png
+  site-url: https://song921012.github.io/Julia_Tutorial_on_AI4MathBiology/
+  repo-url: https://github.com/song921012/Julia_Tutorial_on_AI4MathBiology/
+  repo-branch: master
+  repo-actions: [edit]
+  sharing: [twitter, facebook, linkedin]
+  chapters:
+    - index.qmd
+    - 1-basics.ipynb
+    - 2-neural-networks&optimization.ipynb
+    - 3-differential-equations.ipynb
+    - 4-neural-differential-equations.ipynb
+    - 5-symbolic-regression.ipynb
+    # - part: "Projects/0-projects.qmd"
+    #   chapters:
+    #     - "Projects/0-ongoingpapers.qmd"
+    #     - "Projects/0-scimlbook.qmd"
+    # - "0-summary.qmd"
+    # - "0-references.qmd"
+  # appendices:
+  #   - "0-appendix.qmd"
+  page-footer:
+    left: "Copyright 2023, Pengfei Song"
+    right: This book was built with <a href="https://quarto.org/">Quarto</a>.
+    #  - icon: github
+    #    href: https://github.com/Song921012
+
+language:
+  label:
+    fig: "图 "
+    tab: "表 "
+    thm: "定理 "
+    lem: "引理 "
+    cor: "推论 "
+    prp: "命题 "
+    def: "定义 "
+    exm: "例 "
+    exr: "练习 "
+    proof: "证明 "
+    remark: "注 "
+    solution: "解 "
+  ui:
+    edit: "编辑"
+    chapter_name: ["第 ", " 章"]
+
+bibliography: references.bib
+
+format:
+  html:
+    #theme: [sandstone, theme.scs]
+    #css: styles.css
+    theme:
+      light: [sandstone, theme.scss] # from https://github.com/sta210-s22/website/blob/main/_quarto.yml
+      dark: [sandstone, theme-dark.scss]
+    code-copy: true
+    code-overflow: wrap
+    toc: true
+  pdf:
+    documentclass: scrreport
+    keep-tex: true
+  epub:
+    cover-image: cover.png
