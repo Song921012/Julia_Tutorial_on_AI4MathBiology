@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Julia Tutorial on AI for Mathematical Biology",
     "section": "",
-    "text": "Welcome",
+    "text": "Welcome\nThis note is a tutorial on coupling of transmission dynamics and deep learning. It is for a 2-hour lecture in mathematical biology class (taught by Prof Jianhong Wu) in York University.",
     "crumbs": [
       "Welcome"
     ]

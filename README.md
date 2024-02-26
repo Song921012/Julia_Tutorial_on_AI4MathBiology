@@ -1,6 +1,6 @@
 # Tutorial on coupling of transmission dynamics and deep learning
 
-For a 2 hours courses (taught by Prof Jianhong Wu) in York University.
+For a 2-hour lecture in mathematical biology class (taught by Prof Jianhong Wu) in York University.
 
 ## Set up the `Julia` environment
 
