@@ -1,11 +1,13 @@
 ---
 description-meta: |
-  This note is for tutorial on coupling of transmission dynamics and deep learning.
+  This note is for a tutorial on AI for Mathematical Biology.
 ---
 
 ## Welcome {.unnumbered}
 
-This note is a tutorial on coupling of transmission dynamics and deep learning. It is for a 2-hour lecture in mathematical biology class (taught by Prof Jianhong Wu) in York University.
+This note is a Julia tutorial on AI for Mathematical Biology. It is designed as the coding component of a 3-hour course, moving from basic Julia syntax to mechanism-AI coupled dynamical systems.
+
+The final chapter adds uncertainty quantification: a Bayesian last-layer NUTS workflow for estimating the time-varying transmission rate $\beta(t)$ in an SIR model.
 
 
 

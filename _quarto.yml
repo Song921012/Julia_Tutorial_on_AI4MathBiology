@@ -6,11 +6,11 @@ book:
   page-navigation: true
   title: "Julia Tutorial on AI for Mathematical Biology"
   author: "Pengfei Song"
-  date: "02/06/2024"
+  date: "07/05/2026"
   #cover-image: images/cover.png
   site-url: https://song921012.github.io/Julia_Tutorial_on_AI4MathBiology/
   repo-url: https://github.com/song921012/Julia_Tutorial_on_AI4MathBiology/
-  repo-branch: master
+  repo-branch: main
   repo-actions: [edit]
   sharing: [twitter, facebook, linkedin]
   chapters:
@@ -20,6 +20,7 @@ book:
     - 3-differential-equations.ipynb
     - 4-neural-differential-equations.ipynb
     - 5-symbolic-regression.ipynb
+    - 6-uncertainty-quantification-last-layer-nuts.ipynb
     # - part: "Projects/0-projects.qmd"
     #   chapters:
     #     - "Projects/0-ongoingpapers.qmd"
@@ -36,23 +37,26 @@ book:
 
 language:
   label:
-    fig: "图 "
-    tab: "表 "
-    thm: "定理 "
-    lem: "引理 "
-    cor: "推论 "
-    prp: "命题 "
-    def: "定义 "
-    exm: "例 "
-    exr: "练习 "
-    proof: "证明 "
-    remark: "注 "
-    solution: "解 "
+    fig: "Figure "
+    tab: "Table "
+    thm: "Theorem "
+    lem: "Lemma "
+    cor: "Corollary "
+    prp: "Proposition "
+    def: "Definition "
+    exm: "Example "
+    exr: "Exercise "
+    proof: "Proof "
+    remark: "Remark "
+    solution: "Solution "
   ui:
-    edit: "编辑"
-    chapter_name: ["第 ", " 章"]
+    edit: "Edit"
+    chapter_name: ["Chapter ", ""]
 
 bibliography: references.bib
+
+execute:
+  enabled: false
 
 format:
   html:
@@ -64,8 +68,3 @@ format:
     code-copy: true
     code-overflow: wrap
     toc: true
-  pdf:
-    documentclass: scrreport
-    keep-tex: true
-  epub:
-    cover-image: cover.png
